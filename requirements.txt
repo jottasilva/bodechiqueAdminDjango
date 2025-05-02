@@ -64,7 +64,7 @@ gitdb==4.0.12
 GitPython==3.1.44
 google-pasta==0.2.0
 google_search_results==2.4.2
-googletrans==4.0.0rc1
+googletrans
 googletrans-py==4.0.0
 gradio==5.27.1
 gradio_client==1.9.1
