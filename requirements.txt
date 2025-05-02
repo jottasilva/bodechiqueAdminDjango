@@ -74,7 +74,6 @@ groovy==0.1.2
 grpcio==1.71.0
 gunicorn==23.0.0
 h11==0.14.0
-<<<<<<< HEAD
 h2==4.2.0
 h5py==3.13.0
 hpack==4.1.0
@@ -82,18 +81,14 @@ hpack==4.1.0
 h2>=4,<5
 h5py==3.13.0
 hpack
->>>>>>> 741a707aff2eb6e4462ed65703281c16616b8892
 hstspreload==2025.1.1
 httpcore==1.0.8
 httplib2==0.22.0
 httpx==0.28.1
 httpx-sse==0.4.0
 huggingface-hub==0.30.2
-<<<<<<< HEAD
 hyperframe==6.1.0
-=======
 hyperframe>=6.1,<7
->>>>>>> 741a707aff2eb6e4462ed65703281c16616b8892
 hyperlink==21.0.0
 idna==2.10
 imageio==2.34.2
