@@ -70,7 +70,7 @@ gritql==0.2.0
 groovy==0.1.2
 grpcio==1.71.0
 h11==0.14.0
-h2==3.2.0
+h2>=4,<5
 h5py==3.13.0
 hpack==3.0.0
 hstspreload==2025.1.1
