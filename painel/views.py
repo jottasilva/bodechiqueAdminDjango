@@ -149,28 +149,7 @@ def get_serializer_class(self):
     if self.action == 'create':
         return OrderCreateSerializer
     return OrderSerializer
-def adicionar_produto(request):
-    if request.method == 'POST':
-        form = ProdutoForm(request.POST, request.FILES)
-        if form.is_valid():
-            produto = form.save()
-            
-            imagens = request.FILES.getlist('imagens')
-            for i, img in enumerate(imagens):
-                ProdutoImagem.objects.create(
-                    produto=produto,
-                    imagem=img,
-                    ordem=i
-                )
-            return redirect('lista_produtos')
-    else:
-        form = ProdutoForm()
-        imagem_form = ProdutoImagemForm()
-    
-    return render(request, 'adicionar_produto.html', {
-        'form': form,
-        'imagem_form': imagem_form
-    })
+
 
 def contato_json(request):
     try:

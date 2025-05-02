@@ -1,0 +1,82 @@
+services:
+  # Web Service (aplicação Django)
+  - type: web
+    name: meu-aplicativo-django
+    env: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn seu_projeto.wsgi:application --timeout 120
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: database-prod
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: DJANGO_SETTINGS_MODULE
+        value: seu_projeto.settings
+    autoDeploy: true
+    healthCheckPath: /api/health/  # Crie uma view para este endpoint
+
+  # Serviço de Worker (opcional - para processamento em background com Celery)
+  - type: worker
+    name: meu-aplicativo-worker
+    env: python
+    buildCommand: ./build.sh
+    startCommand: celery -A seu_projeto worker -l info
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: database-prod
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: DJANGO_SETTINGS_MODULE
+        value: seu_projeto.settings
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: redis-cache
+          property: connectionString
+    autoDeploy: true
+
+  # Serviço Beat do Celery (opcional - para tarefas agendadas)
+  - type: worker
+    name: meu-aplicativo-beat
+    env: python
+    buildCommand: ./build.sh
+    startCommand: celery -A seu_projeto beat -l info
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: database-prod
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: DJANGO_SETTINGS_MODULE
+        value: seu_projeto.settings
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: redis-cache
+          property: connectionString
+    autoDeploy: true
+    
+databases:
+  # Banco de dados PostgreSQL
+  - name: database-prod
+    databaseName: meu_banco_de_dados
+    user: usuario_db
+    plan: free # ou standard, pro (consulte as opções no Render.com)
+
+services:
+  # Redis para cache e mensageria (opcional - necessário para Celery e channels)
+  - type: redis
+    name: redis-cache
+    ipAllowList: [] # Usar [] permite acesso de todos os serviços do Render
+    plan: free # ou standard, pro (consulte as opções no Render.com)
