@@ -1,0 +1,10 @@
+WARNING 2025-05-02 09:42:38,501 log 8796 5508 Unauthorized: /api/produtos/
+WARNING 2025-05-02 09:42:38,501 basehttp 8796 5508 "GET /api/produtos/ HTTP/1.1" 401 68
+WARNING 2025-05-02 09:42:38,507 log 8796 5508 Unauthorized: /api/orders/tx_1nl40zfu0vg/
+WARNING 2025-05-02 09:42:38,507 basehttp 8796 5508 "PATCH /api/orders/tx_1nl40zfu0vg/ HTTP/1.1" 401 68
+WARNING 2025-05-02 09:42:40,923 log 8796 5508 Unauthorized: /api/produtos/
+WARNING 2025-05-02 09:42:40,923 basehttp 8796 5508 "GET /api/produtos/ HTTP/1.1" 401 68
+WARNING 2025-05-02 09:43:02,648 log 8796 5508 Unauthorized: /api/produtos/
+WARNING 2025-05-02 09:43:02,648 basehttp 8796 5508 "GET /api/produtos/ HTTP/1.1" 401 68
+WARNING 2025-05-02 09:43:02,655 log 8796 5508 Unauthorized: /api/orders/tx_1nl40zfu0vg/
+WARNING 2025-05-02 09:43:02,656 basehttp 8796 5508 "PATCH /api/orders/tx_1nl40zfu0vg/ HTTP/1.1" 401 68
