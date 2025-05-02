@@ -10,7 +10,7 @@ SECRET_KEY = 'django-insecure-8jm$%88dz7%8z^7ei67nj!6&5sopj6$otp6hvhvn%5dz0!j91j
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ecomerce-maconaria-upqp.vercel.app']
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 
 CORS_ALLOW_ALL_ORIGINS = True
 
